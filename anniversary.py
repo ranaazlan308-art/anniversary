@@ -147,7 +147,7 @@ st.markdown("""
     <div class="small">
     Meri jaan, jab se tum meri zindagi ka hissa bani ho,
     zindagi pehle se zyada khoobsurat lagti hai.<br><br>
-    Hamare Nikah ke din se lekar aaj tak, tum mere liye
+    tum mere liye
     sirf meri humsafar nahi, balkay meri khushi, mera sukoon
     aur meri zindagi ka ek bohat pyara hissa ho.<br><br>
     Ho sakta hai main har roz apne dil ki har baat alfaaz mein
