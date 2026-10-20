@@ -178,18 +178,19 @@ with col3:
     """, unsafe_allow_html=True)
 
 # Love letter
+
 st.markdown(f"""
 <div class="card">
     <div class="script">My Dearest Love 💌</div>
     <div class="small">
         Meri jaan {wife}, tum meri zindagi ka bohat khoobsurat
         hissa ho. Tumhare saath guzra har lamha mere liye
-        ek anmol tohfa hai. ❤️<br><br>
-
+        ek anmol tohfa hai. ❤️
+        <br><br>
         Main dua karta hoon ke hamara rishta hamesha mohabbat,
         izzat, sukoon aur barkat se bhara rahe. Har khushi aur
-        mushkil mein hum ek doosre ka saath dein.<br><br>
-
+        mushkil mein hum ek doosre ka saath dein.
+        <br><br>
         Main perfect nahi hoon, lekin tumse meri mohabbat
         dil se hai. Allah humein hamesha saath aur khush rakhe.
         Ameen. ❤️
@@ -199,27 +200,6 @@ st.markdown(f"""
     </div>
 </div>
 """, unsafe_allow_html=True)
-
-# Photo gallery
-st.markdown("""
-<div class="hero">
-    <h1>Our Little World 📸</h1>
-    <p>Hamari khoobsurat yaadein ❤️</p>
-</div>
-""", unsafe_allow_html=True)
-
-photos = st.file_uploader(
-    "Apni favourite pictures upload karein",
-    type=["jpg", "jpeg", "png"],
-    accept_multiple_files=True
-)
-
-if photos:
-    columns = st.columns(2)
-    for i, photo in enumerate(photos):
-        with columns[i % 2]:
-            st.image(photo, use_container_width=True)
-            st.caption("A memory to cherish forever ❤️")
 
 # Promises
 st.markdown("""
