@@ -207,7 +207,7 @@ if st.session_state.surprise_open:
         mohabbat har guzarte saal ke saath aur mazeed gehri ho. ❤️</b>
         </p>
         <div class="script">I Love You sooo muchhhh meri jaaaan mera bachaaaaa, Always & Forever 💗</div>
-        <p style="color:#ffb6d0;">With love, {Azlan}</p>
+        <p style="color:#ffb6d0;">With love, {}</p>
     </div>
     """, unsafe_allow_html=True)
 
