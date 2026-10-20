@@ -1,4 +1,4 @@
-
+]
 import streamlit as st
 from datetime import date
 import base64
@@ -163,43 +163,6 @@ st.markdown("""
     <div class="script" style="text-align:right;">Forever yours 💖</div>
 </div>
 """, unsafe_allow_html=True)
-
-# ---------- MEMORY GALLERY ----------
-st.markdown("""
-<div class="hero" style="padding:25px 0 5px;">
-    <h1 style="font-size:65px;">Our Little World</h1>
-    <p>EVERY PICTURE HAS A STORY 📸</p>
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown(
-    '<div class="small" style="text-align:center;">'
-    'Neeche apni favourite pictures upload karo aur is surprise '
-    'ko apni yaadon se sajao. 💗</div>',
-    unsafe_allow_html=True
-)
-
-photos = st.file_uploader(
-    "Upload your favourite memories",
-    type=["jpg", "jpeg", "png", "webp"],
-    accept_multiple_files=True
-)
-
-if photos:
-    cols = st.columns(2)
-    for i, photo in enumerate(photos):
-        with cols[i % 2]:
-            st.image(photo, use_container_width=True)
-            st.caption("A memory I will always cherish ❤️")
-else:
-    st.markdown("""
-    <div class="card" style="text-align:center;">
-        <div style="font-size:60px;">📷 💕 🌹</div>
-        <p class="small">Your favourite memories will live here.</p>
-        <p style="color:#ffb6d0;">Upload your pictures above ✨</p>
-    </div>
-    """, unsafe_allow_html=True)
-
 # ---------- PROMISES ----------
 st.markdown("""
 <div class="card">
