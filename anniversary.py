@@ -198,16 +198,16 @@ if st.session_state.surprise_open:
         <div class="script">You Are My Forever</div>
         <h2 style="color:#ffe0eb;">{wife_name}, meri jaan...</h2>
         <p class="small">
-        Agar mujhe zindagi dobara shuru karne ka mauqa mile,
+        Mariyam Agar mujhe zindagi dobara shuru karne ka mauqa mile,
         toh main phir tumhein hi chunoon.<br><br>
         Tumhare saath guzra har lamha mere liye ek tohfa hai.
         Main perfect nahi hoon, lekin tumse meri mohabbat
         dil se hai.<br><br>
-        <b>4 saal beet gaye, aur meri dua hai ke hamari
-        mohabbat har guzarte saal ke saath aur gehri ho. ❤️</b>
+        <b>4 saal guzr gaye, aur meri dua hai ke hamari
+        mohabbat har guzarte saal ke saath aur mazeed gehri ho. ❤️</b>
         </p>
-        <div class="script">I Love You, Always & Forever 💗</div>
-        <p style="color:#ffb6d0;">With love, {your_name}</p>
+        <div class="script">I Love You sooo muchhhh meri jaaaan mera bachaaaaa, Always & Forever 💗</div>
+        <p style="color:#ffb6d0;">With love, {Azlan}</p>
     </div>
     """, unsafe_allow_html=True)
 
