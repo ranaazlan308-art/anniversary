@@ -238,7 +238,7 @@ if st.session_state["surprise_open"]:
             insan ho. Main tumse aaj bhi mohabbat karta hoon
             aur hamesha karta rahunga. ❤️
         </div>
-        <div class="script">I Love You Forever 💗</div>
+        <div class="script">I Love You soooo mucchhhhhh meri jaaan mera bachaaaaaa 💗</div>
         <p>With love, {your}</p>
     </div>
     """, unsafe_allow_html=True)
