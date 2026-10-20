@@ -1,444 +1,258 @@
 
 import streamlit as st
+from datetime import date
+import base64
 
 st.set_page_config(
     page_title="Forever & Always ❤️",
-    page_icon="💗",
+    page_icon="💍",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
-# ---------- SESSION STATE ----------
-for key in ["surprise1", "surprise2", "surprise3"]:
-    if key not in st.session_state:
-        st.session_state[key] = False
-
-# ---------- PERSONALIZATION ----------
-st.sidebar.title("💌 Personalize Your Website")
-
-wife_name = st.sidebar.text_input(
-    "Her name / nickname", "My Love"
-)
-your_name = st.sidebar.text_input(
-    "Your name", "Your Forever Person"
+# ---------- PERSONAL DETAILS ----------
+st.sidebar.title("💌 Personalize Your Surprise")
+wife_name = st.sidebar.text_input("Wife ka naam", "Meri Jaan")
+your_name = st.sidebar.text_input("Tumhara naam", "Tumhara Humsafar")
+nikah_date = st.sidebar.date_input(
+    "Nikah ki date",
+    value=date(2022, 10, 29)
 )
 
-# ---------- CSS DESIGN ----------
+# ---------- ROMANTIC DESIGN ----------
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap');
 
 .stApp {
-    background: linear-gradient(135deg, #170b1c, #351126, #1a1028);
-    color: #fff4f8;
+    background: linear-gradient(145deg, #160b16, #351127, #170d20);
+    color: #fff0f5;
     font-family: 'Poppins', sans-serif;
 }
-
 header[data-testid="stHeader"] {
     background: transparent;
 }
-
-#MainMenu, footer {
-    visibility: hidden;
-}
-
-.block-container {
-    max-width: 1050px;
-    padding: 2rem 1.2rem 3rem;
-}
+#MainMenu, footer {visibility: hidden;}
 
 .hero {
     text-align: center;
-    padding: 35px 8px;
+    padding: 65px 12px 35px 12px;
 }
-
 .hero h1 {
     font-family: 'Great Vibes', cursive;
+    font-size: clamp(55px, 9vw, 100px);
     color: #ffb6d0;
-    font-size: clamp(48px, 8vw, 82px);
-    line-height: 1.3;
-    text-shadow: 0 0 18px rgba(255,64,129,0.45);
-    overflow-wrap: anywhere;
+    margin: 0;
+    text-shadow: 0 0 25px #ff4081;
 }
-
 .hero p {
-    color: #ffe2ec;
-    font-size: 14px;
-    letter-spacing: 1.5px;
-    line-height: 1.8;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #f8d8e5;
 }
-
 .heart {
-    font-size: 46px;
-    animation: heartbeat 1.3s infinite;
+    font-size: 48px;
+    animation: beat 1.2s infinite;
     display: inline-block;
 }
-
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+@keyframes beat {
+    0%, 100% {transform: scale(1);}
+    50% {transform: scale(1.2);}
 }
-
-.love-card {
-    background: linear-gradient(145deg, #35152d, #241326);
-    border: 1px solid #c76b96;
-    border-radius: 24px;
+.card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,182,208,0.35);
+    border-radius: 22px;
     padding: 28px;
-    margin: 22px 0;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-    overflow-wrap: anywhere;
+    margin: 18px 0;
+    box-shadow: 0 8px 35px rgba(255,64,129,0.08);
 }
-
-.script-title {
+.script {
     font-family: 'Great Vibes', cursive;
     color: #ffb6d0;
-    font-size: clamp(34px, 5vw, 48px);
-    line-height: 1.4;
+    font-size: 42px;
 }
-
-.love-text {
-    color: #fff1f6;
+.small {
+    color: #f8d8e5;
+    line-height: 1.9;
     font-size: 16px;
-    line-height: 2;
 }
-
-.counter {
-    background: #291527;
-    border: 1px solid #a94b76;
-    border-radius: 18px;
-    padding: 22px 8px;
-    text-align: center;
-    min-height: 135px;
-}
-
-.counter-number {
-    color: #ffb6d0;
-    font-size: 36px;
-    font-weight: 700;
-}
-
-.counter-label {
-    color: #fff1f6;
-    font-size: 14px;
-}
-
 div.stButton > button {
     width: 100%;
-    min-height: 55px;
-    white-space: normal;
-    background: #e83e78;
-    color: #ffffff;
+    border-radius: 30px;
     border: 1px solid #ffb6d0;
-    border-radius: 14px;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 12px;
+    background: linear-gradient(90deg, #e83e78, #9d286e);
+    color: white;
+    padding: 13px 20px;
+    font-weight: 600;
+    transition: 0.3s;
 }
-
 div.stButton > button:hover {
-    background: #bd2863;
-    color: #ffffff;
-    border-color: #ffffff;
+    border-color: white;
+    box-shadow: 0 0 20px #ff4081;
+    color: white;
 }
-
-div.stButton > button:focus {
-    color: #ffffff;
-    border-color: #ffffff;
-}
-
-div[data-testid="stSidebar"] {
-    background: #241020;
-}
-
-div[data-testid="stSidebar"] * {
-    color: #fff1f6;
-}
-
-hr {
-    border-color: #a94b76 !important;
-}
-
-@media (max-width: 600px) {
-    .block-container {
-        padding: 1rem 0.8rem 2rem;
-    }
-
-    .love-card {
-        padding: 19px;
-    }
-
-    .love-text {
-        font-size: 15px;
-        line-height: 1.9;
-    }
-
-    .counter-number {
-        font-size: 27px;
-    }
-
-    .counter-label {
-        font-size: 12px;
-    }
+div[data-testid="stFileUploader"] {
+    background: rgba(255,255,255,0.04);
+    padding: 15px;
+    border-radius: 15px;
 }
 </style>
 """, unsafe_allow_html=True)
-
 
 # ---------- HERO ----------
 st.markdown(f"""
 <div class="hero">
     <div class="heart">💗</div>
-    <h1>Forever &amp; Always</h1>
-    <p>A LITTLE WEBSITE MADE WITH A LOT OF LOVE</p>
-    <h2 style="color:#ffffff;">For {wife_name} ❤️</h2>
-    <p>YOU ARE MY FAVOURITE PERSON</p>
+    <h1>Forever & Always</h1>
+    <p>A LOVE STORY WRITTEN BY ALLAH'S BLESSINGS</p>
+    <h2 style="color:#ffe0eb;">For {wife_name} 💍</h2>
+    <p>29 OCTOBER · OUR SPECIAL DAY</p>
 </div>
 """, unsafe_allow_html=True)
 
+# ---------- ANNIVERSARY COUNTER ----------
+today = date.today()
+years = today.year - nikah_date.year
+if (today.month, today.day) < (nikah_date.month, nikah_date.day):
+    years -= 1
 
-# ---------- OUR LITTLE WORLD ----------
+years = max(0, years)
+days_together = max(0, (today - nikah_date).days)
+
+c1, c2, c3 = st.columns(3)
+with c1:
+    st.markdown(f"""
+    <div class="card" style="text-align:center;">
+        <h1 style="color:#ffb6d0;">{years}</h1>
+        <p>Beautiful Years 💕</p>
+    </div>""", unsafe_allow_html=True)
+with c2:
+    st.markdown(f"""
+    <div class="card" style="text-align:center;">
+        <h1 style="color:#ffb6d0;">{days_together}</h1>
+        <p>Days Together 🌙</p>
+    </div>""", unsafe_allow_html=True)
+with c3:
+    st.markdown("""
+    <div class="card" style="text-align:center;">
+        <h1 style="color:#ffb6d0;">∞</h1>
+        <p>Love For You ❤️</p>
+    </div>""", unsafe_allow_html=True)
+
+# ---------- LOVE LETTER ----------
 st.markdown("""
-<div class="hero" style="padding:5px 0 15px;">
-    <h1 style="font-size:48px;">Our Little World ✨</h1>
+<div class="card">
+    <div class="script">My Dearest Love, 💌</div>
+    <div class="small">
+    Meri jaan, jab se tum meri zindagi ka hissa bani ho,
+    zindagi pehle se zyada khoobsurat lagti hai.<br><br>
+    tum mere liye
+    sirf meri humsafar nahi, balkay meri khushi, mera sukoon
+    aur meri zindagi ka ek bohat pyara hissa ho.<br><br>
+    Ho sakta hai main har roz apne dil ki har baat alfaaz mein
+    na keh sakun, lekin tum mere liye bohat special ho.
+    Main chahta hoon ke har aane wale saal mein hum saath
+    hansein, ek doosre ko samjhein aur har mushkil mein
+    ek doosre ka haath thaamein.<br><br>
+    <b>Happy 4th Nikah Anniversary, meri jaan.</b><br>
+    Meri dua hai ke hamara rishta hamesha mohabbat,
+    izzat, rehmat aur barkat se bhara rahe. Ameen. ❤️
+    </div>
+    <br>
+    <div class="script" style="text-align:right;">Forever yours 💖</div>
 </div>
 """, unsafe_allow_html=True)
 
-a, b, c = st.columns(3)
+# ---------- MEMORY GALLERY ----------
+st.markdown("""
+<div class="hero" style="padding:25px 0 5px;">
+    <h1 style="font-size:65px;">Our Little World</h1>
+    <p>EVERY PICTURE HAS A STORY 📸</p>
+</div>
+""", unsafe_allow_html=True)
 
-with a:
+st.markdown(
+    '<div class="small" style="text-align:center;">'
+    'Neeche apni favourite pictures upload karo aur is surprise '
+    'ko apni yaadon se sajao. 💗</div>',
+    unsafe_allow_html=True
+)
+
+photos = st.file_uploader(
+    "Upload your favourite memories",
+    type=["jpg", "jpeg", "png", "webp"],
+    accept_multiple_files=True
+)
+
+if photos:
+    cols = st.columns(2)
+    for i, photo in enumerate(photos):
+        with cols[i % 2]:
+            st.image(photo, use_container_width=True)
+            st.caption("A memory I will always cherish ❤️")
+else:
     st.markdown("""
-    <div class="counter">
-        <div class="counter-number">❤️</div>
-        <div class="counter-label">A Heart Full of Love</div>
+    <div class="card" style="text-align:center;">
+        <div style="font-size:60px;">📷 💕 🌹</div>
+        <p class="small">Your favourite memories will live here.</p>
+        <p style="color:#ffb6d0;">Upload your pictures above ✨</p>
     </div>
     """, unsafe_allow_html=True)
 
-with b:
-    st.markdown("""
-    <div class="counter">
-        <div class="counter-number">∞</div>
-        <div class="counter-label">Love Without Limits</div>
+# ---------- PROMISES ----------
+st.markdown("""
+<div class="card">
+    <div class="script">My Promises To You 🌹</div>
+    <div class="small">
+    ❤️ I promise to keep choosing you, every single day.<br>
+    ❤️ I promise to listen, understand and respect you.<br>
+    ❤️ I promise to stand beside you in happy and difficult times.<br>
+    ❤️ I promise to keep making little memories with you.<br>
+    ❤️ I pray that we grow old together, with love in our hearts.
     </div>
-    """, unsafe_allow_html=True)
+</div>
+""", unsafe_allow_html=True)
 
-with c:
-    st.markdown("""
-    <div class="counter">
-        <div class="counter-number">1</div>
-        <div class="counter-label">My Favourite Person</div>
-    </div>
-    """, unsafe_allow_html=True)
+# ---------- SECRET SURPRISE ----------
+st.markdown("""
+<div class="hero" style="padding:20px 0;">
+    <h1 style="font-size:65px;">One Last Surprise...</h1>
+    <p>MADE WITH ALL MY HEART, JUST FOR YOU 💌</p>
+</div>
+""", unsafe_allow_html=True)
 
+if "surprise_open" not in st.session_state:
+    st.session_state.surprise_open = False
 
-# ---------- PREMIUM LOVE LETTER ----------
-st.markdown(f"""
-<div class="love-card" style="text-align:center;">
+if st.button("🎁 Open Your Special Surprise ❤️"):
+    st.session_state.surprise_open = True
+    st.balloons()
 
-    <div style="font-size:35px; margin-bottom:12px;">
-        💌 🌹 💌
-    </div>
-
-    <div class="script-title" style="margin-bottom:22px;">
-        A Letter From My Heart
-    </div>
-
-    <div style="
-        width:65px;
-        height:2px;
-        background:#ffb6d0;
-        margin:0 auto 25px auto;
-    "></div>
-
-    <div class="love-text">
-
-        <p style="color:#ffb6d0; font-size:19px;">
-            To My Favourite Person ❤️
+if st.session_state.surprise_open:
+    st.markdown(f"""
+    <div class="card" style="text-align:center;">
+        <div style="font-size:65px;">💍❤️🧿</div>
+        <div class="script">You Are My Forever</div>
+        <h2 style="color:#ffe0eb;">{wife_name}, meri jaan...</h2>
+        <p class="small">
+        Agar mujhe zindagi dobara shuru karne ka mauqa mile,
+        toh main phir tumhein hi chunoon.<br><br>
+        Tumhare saath guzra har lamha mere liye ek tohfa hai.
+        Main perfect nahi hoon, lekin tumse meri mohabbat
+        dil se hai.<br><br>
+        <b>4 saal beet gaye, aur meri dua hai ke hamari
+        mohabbat har guzarte saal ke saath aur gehri ho. ❤️</b>
         </p>
-
-        Kuch log zindagi mein aakar use aur bhi khoobsurat
-        bana dete hain... aur mere liye woh shakhs tum ho. 💗
-
-        <br><br>
-
-        Tumhari ek muskurahat mere chehre par bhi smile le aati hai,
-        aur tumse baat karna mere din ka sabse pyara hissa ban jata hai.
-
-        <br><br>
-
-        Main shayad hamesha apni feelings ko sahi alfaaz mein
-        bayan na kar sakun, lekin tum mere liye jitni special ho,
-        woh main lafzon mein poori tarah samjha nahi sakta.
-
-        <br><br>
-
-        Meri khwahish hai ke tumhari zindagi mein hamesha khushiyan
-        hon, tumhare chehre par muskurahat rahe, aur tumhein har din
-        yeh ehsaas ho ke koi hai jo tumhari bohat parwah karta hai. 🫶🏻
-
-        <br><br>
-
-        <span style="color:#ffb6d0; font-weight:600;">
-            If I could choose my favourite part of life,
-            I would choose every moment that has you in it.
-        </span>
-
-    </div>
-
-    <div style="
-        color:#ffb6d0;
-        font-size:24px;
-        margin:25px 0 12px;
-    ">
-        ───── ♡ ─────
-    </div>
-
-    <div class="script-title">
-        With All My Love
-    </div>
-
-    <div style="font-size:27px; margin-top:10px;">
-        ❤️ 🫶🏻 🌹
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
-
-
-# ---------- SURPRISE ONE ----------
-st.markdown("""
-<div class="hero">
-    <h1 style="font-size:54px;">A Little Surprise 🎁</h1>
-    <p>SOMETHING SPECIAL JUST FOR YOU</p>
-</div>
-""", unsafe_allow_html=True)
-
-if st.button("💝 Open Surprise Number One", key="btn1"):
-    st.session_state.surprise1 = not st.session_state.surprise1
-
-    if st.session_state.surprise1:
-        st.balloons()
-
-if st.session_state.surprise1:
-    st.markdown(f"""
-    <div class="love-card" style="text-align:center;">
-        <div style="font-size:48px;">🌹❤️🌹</div>
-
-        <div class="script-title">
-            You Make My World Beautiful
-        </div>
-
-        <div class="love-text">
-            {wife_name}, tumhari smile mere liye kisi magic se kam nahi.
-            Tumhari khushi dekh kar mera dil khush ho jata hai.<br><br>
-
-            Duniya chahe kitni bhi busy ho jaye, tumhare liye
-            mere dil mein hamesha ek special jagah rahegi.<br><br>
-
-            <b>Thank you for being you. I love you, meri jaan! ❤️</b>
-        </div>
+        <div class="script">I Love You, Always & Forever 💗</div>
+        <p style="color:#ffb6d0;">With love, {your_name}</p>
     </div>
     """, unsafe_allow_html=True)
 
-
-# ---------- SURPRISE TWO ----------
 st.markdown("""
-<div class="hero">
-    <h1 style="font-size:54px;">A Secret Message 💌</h1>
-    <p>OPEN THIS WHEN YOU MISS ME</p>
-</div>
-""", unsafe_allow_html=True)
-
-if st.button("💌 Read Your Secret Letter", key="btn2"):
-    st.session_state.surprise2 = not st.session_state.surprise2
-
-    if st.session_state.surprise2:
-        st.snow()
-
-if st.session_state.surprise2:
-    st.markdown(f"""
-    <div class="love-card" style="text-align:center;">
-        <div style="font-size:48px;">💌🫶🏻💗</div>
-
-        <div class="script-title">
-            Whenever You Miss Me...
-        </div>
-
-        <div class="love-text">
-            Meri jaan {wife_name}, agar kabhi meri yaad aaye,
-            toh hamari achhi baaton aur khoobsurat lamhon ko yaad karna.<br><br>
-
-            Kaash main har us waqt tumhare paas hota jab tumhein
-            ek hug, ek smile ya bas kisi apne ki zaroorat hoti.<br><br>
-
-            Chahe hum paas hon ya door, tum mere liye bohat important ho.
-            Main chahta hoon ke tum hamesha khud ko loved aur valued mehsoos karo.<br><br>
-
-            <b>Jab tum mujhe miss karo, yaad rakhna:
-            tum bhi mere dil ke bohat qareeb ho. ❤️</b>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-
-# ---------- SURPRISE THREE ----------
-st.markdown("""
-<div class="hero">
-    <h1 style="font-size:54px;">One Last Surprise 💍</h1>
-    <p>A PROMISE FROM MY HEART</p>
-</div>
-""", unsafe_allow_html=True)
-
-if st.button("💍 Reveal My Promise", key="btn3"):
-    st.session_state.surprise3 = not st.session_state.surprise3
-
-    if st.session_state.surprise3:
-        st.balloons()
-
-if st.session_state.surprise3:
-    st.markdown(f"""
-    <div class="love-card" style="text-align:center;">
-        <div style="font-size:55px;">💗♾️🌹</div>
-
-        <div class="script-title">
-            My Promise To You
-        </div>
-
-        <div class="love-text">
-            {wife_name}, main promise karta hoon ke main tumhari baat
-            sunne, tumhein samajhne aur tumhari izzat karne ki
-            hamesha koshish karunga.<br><br>
-
-            Main chahta hoon ke hum saath hansen, ek doosre se seekhein,
-            mushkil waqt mein ek doosre ka sahara banen aur zindagi
-            ki chhoti chhoti khushiyon ko celebrate karein.<br><br>
-
-            Main tumse har roz perfect hone ka wada nahi karta,
-            lekin apni mohabbat aur apne rawaiye ko behtar banane
-            ki koshish ka wada zaroor karta hoon.<br><br>
-
-            <b>My favourite place is wherever I can share a smile with you.</b>
-        </div>
-
-        <div class="script-title" style="margin-top:20px;">
-            You, Me &amp; Forever 💖
-        </div>
-
-        <h3 style="color:#ffffff;">
-            With love, {your_name}
-        </h3>
-    </div>
-    """, unsafe_allow_html=True)
-
-
-# ---------- FOOTER ----------
-st.markdown("""
-<hr>
-
-<div class="hero">
-    <h1 style="font-size:48px;">Always &amp; Forever 💗</h1>
-    <p>MADE WITH LOVE, JUST FOR YOU</p>
-    <p style="letter-spacing:0;">
-        Two hearts, countless memories, endless possibilities. ❤️
-    </p>
-</div>
+<hr style="border-color:#61304e;">
+<p style="text-align:center;color:#e9b8cd;padding:15px;">
+Made with ❤️, prayers and endless love.<br>
+One Nikah. Two hearts. A lifetime together. 💍
+</p>
 """, unsafe_allow_html=True)
