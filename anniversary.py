@@ -15,8 +15,13 @@ for key in ["surprise1", "surprise2", "surprise3"]:
 
 # ---------- PERSONALIZATION ----------
 st.sidebar.title("💌 Personalize Your Website")
-wife_name = st.sidebar.text_input("Her name / nickname", "My Love")
-your_name = st.sidebar.text_input("Your name", "Your Forever Person")
+
+wife_name = st.sidebar.text_input(
+    "Her name / nickname", "My Love"
+)
+your_name = st.sidebar.text_input(
+    "Your name", "Your Forever Person"
+)
 
 # ---------- CSS DESIGN ----------
 st.markdown("""
@@ -52,7 +57,7 @@ header[data-testid="stHeader"] {
     color: #ffb6d0;
     font-size: clamp(48px, 8vw, 82px);
     line-height: 1.3;
-    text-shadow: 0 0 18px rgba(255, 64, 129, 0.45);
+    text-shadow: 0 0 18px rgba(255,64,129,0.45);
     overflow-wrap: anywhere;
 }
 
@@ -66,6 +71,7 @@ header[data-testid="stHeader"] {
 .heart {
     font-size: 46px;
     animation: heartbeat 1.3s infinite;
+    display: inline-block;
 }
 
 @keyframes heartbeat {
@@ -74,20 +80,20 @@ header[data-testid="stHeader"] {
 }
 
 .love-card {
-    background: #291527;
-    border: 1px solid #a94b76;
-    border-radius: 20px;
-    padding: 25px;
-    margin: 18px 0;
+    background: linear-gradient(145deg, #35152d, #241326);
+    border: 1px solid #c76b96;
+    border-radius: 24px;
+    padding: 28px;
+    margin: 22px 0;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
     overflow-wrap: anywhere;
 }
 
 .script-title {
     font-family: 'Great Vibes', cursive;
     color: #ffb6d0;
-    font-size: clamp(32px, 5vw, 43px);
+    font-size: clamp(34px, 5vw, 48px);
     line-height: 1.4;
-    margin-bottom: 14px;
 }
 
 .love-text {
@@ -190,9 +196,9 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 
-# ---------- LOVE STATS ----------
+# ---------- OUR LITTLE WORLD ----------
 st.markdown("""
-<div class="hero" style="padding: 5px 0 15px;">
+<div class="hero" style="padding:5px 0 15px;">
     <h1 style="font-size:48px;">Our Little World ✨</h1>
 </div>
 """, unsafe_allow_html=True)
@@ -219,38 +225,81 @@ with c:
     st.markdown("""
     <div class="counter">
         <div class="counter-number">1</div>
-        <div class="counter-label">Favourite Person</div>
+        <div class="counter-label">My Favourite Person</div>
     </div>
     """, unsafe_allow_html=True)
 
 
-# ---------- LOVE LETTER ----------
+# ---------- PREMIUM LOVE LETTER ----------
 st.markdown(f"""
-<div class="love-card">
-    <div class="script-title">My Dearest {wife_name}, 💌</div>
+<div class="love-card" style="text-align:center;">
+
+    <div style="font-size:35px; margin-bottom:12px;">
+        💌 🌹 💌
+    </div>
+
+    <div class="script-title" style="margin-bottom:22px;">
+        A Letter From My Heart
+    </div>
+
+    <div style="
+        width:65px;
+        height:2px;
+        background:#ffb6d0;
+        margin:0 auto 25px auto;
+    "></div>
+
     <div class="love-text">
-        Kabhi kabhi sochta hoon ke main tumhein bata bhi paata hoon
-        ke tum mere liye kitni special ho ya nahi. ❤️<br><br>
 
-        Tumhari muskurahat mere din ko khoobsurat bana deti hai.
-        Tumse baat karna, tumhare saath hansna aur chhoti chhoti
-        baatein share karna mere favourite moments hain.<br><br>
+        <p style="color:#ffb6d0; font-size:19px;">
+            To My Favourite Person ❤️
+        </p>
 
-        Main perfect nahi hoon, lekin main hamesha koshish karna
-        chahta hoon ke tum khush raho, tumhari izzat ho aur tumhein
-        meri mohabbat ka ehsaas hota rahe.<br><br>
+        Kuch log zindagi mein aakar use aur bhi khoobsurat
+        bana dete hain... aur mere liye woh shakhs tum ho. 💗
 
-        Agar mujhe apni zindagi ke khoobsurat lamhon mein se
-        ek cheez chunni ho, toh main tumhare saath guzare hue
-        lamhon ko chununga. 💗<br><br>
+        <br><br>
 
-        <b>You are not just a part of my life.
-        You are one of my favourite reasons to smile.</b>
+        Tumhari ek muskurahat mere chehre par bhi smile le aati hai,
+        aur tumse baat karna mere din ka sabse pyara hissa ban jata hai.
+
+        <br><br>
+
+        Main shayad hamesha apni feelings ko sahi alfaaz mein
+        bayan na kar sakun, lekin tum mere liye jitni special ho,
+        woh main lafzon mein poori tarah samjha nahi sakta.
+
+        <br><br>
+
+        Meri khwahish hai ke tumhari zindagi mein hamesha khushiyan
+        hon, tumhare chehre par muskurahat rahe, aur tumhein har din
+        yeh ehsaas ho ke koi hai jo tumhari bohat parwah karta hai. 🫶🏻
+
+        <br><br>
+
+        <span style="color:#ffb6d0; font-weight:600;">
+            If I could choose my favourite part of life,
+            I would choose every moment that has you in it.
+        </span>
+
     </div>
-    <br>
-    <div class="script-title" style="text-align:right;">
-        With all my love, 💕
+
+    <div style="
+        color:#ffb6d0;
+        font-size:24px;
+        margin:25px 0 12px;
+    ">
+        ───── ♡ ─────
     </div>
+
+    <div class="script-title">
+        With All My Love
+    </div>
+
+    <div style="font-size:27px; margin-top:10px;">
+        ❤️ 🫶🏻 🌹
+    </div>
+
 </div>
 """, unsafe_allow_html=True)
 
@@ -265,6 +314,7 @@ st.markdown("""
 
 if st.button("💝 Open Surprise Number One", key="btn1"):
     st.session_state.surprise1 = not st.session_state.surprise1
+
     if st.session_state.surprise1:
         st.balloons()
 
@@ -272,7 +322,11 @@ if st.session_state.surprise1:
     st.markdown(f"""
     <div class="love-card" style="text-align:center;">
         <div style="font-size:48px;">🌹❤️🌹</div>
-        <div class="script-title">You Make My World Beautiful</div>
+
+        <div class="script-title">
+            You Make My World Beautiful
+        </div>
+
         <div class="love-text">
             {wife_name}, tumhari smile mere liye kisi magic se kam nahi.
             Tumhari khushi dekh kar mera dil khush ho jata hai.<br><br>
@@ -296,6 +350,7 @@ st.markdown("""
 
 if st.button("💌 Read Your Secret Letter", key="btn2"):
     st.session_state.surprise2 = not st.session_state.surprise2
+
     if st.session_state.surprise2:
         st.snow()
 
@@ -303,7 +358,11 @@ if st.session_state.surprise2:
     st.markdown(f"""
     <div class="love-card" style="text-align:center;">
         <div style="font-size:48px;">💌🫶🏻💗</div>
-        <div class="script-title">Whenever You Miss Me...</div>
+
+        <div class="script-title">
+            Whenever You Miss Me...
+        </div>
+
         <div class="love-text">
             Meri jaan {wife_name}, agar kabhi meri yaad aaye,
             toh hamari achhi baaton aur khoobsurat lamhon ko yaad karna.<br><br>
@@ -331,6 +390,7 @@ st.markdown("""
 
 if st.button("💍 Reveal My Promise", key="btn3"):
     st.session_state.surprise3 = not st.session_state.surprise3
+
     if st.session_state.surprise3:
         st.balloons()
 
@@ -338,7 +398,11 @@ if st.session_state.surprise3:
     st.markdown(f"""
     <div class="love-card" style="text-align:center;">
         <div style="font-size:55px;">💗♾️🌹</div>
-        <div class="script-title">My Promise To You</div>
+
+        <div class="script-title">
+            My Promise To You
+        </div>
+
         <div class="love-text">
             {wife_name}, main promise karta hoon ke main tumhari baat
             sunne, tumhein samajhne aur tumhari izzat karne ki
@@ -354,8 +418,14 @@ if st.session_state.surprise3:
 
             <b>My favourite place is wherever I can share a smile with you.</b>
         </div>
-        <div class="script-title">You, Me &amp; Forever 💖</div>
-        <h3 style="color:#ffffff;">With love, {your_name}</h3>
+
+        <div class="script-title" style="margin-top:20px;">
+            You, Me &amp; Forever 💖
+        </div>
+
+        <h3 style="color:#ffffff;">
+            With love, {your_name}
+        </h3>
     </div>
     """, unsafe_allow_html=True)
 
@@ -363,9 +433,12 @@ if st.session_state.surprise3:
 # ---------- FOOTER ----------
 st.markdown("""
 <hr>
+
 <div class="hero">
     <h1 style="font-size:48px;">Always &amp; Forever 💗</h1>
     <p>MADE WITH LOVE, JUST FOR YOU</p>
-    <p style="letter-spacing:0;">Two hearts, countless memories, endless possibilities. ❤️</p>
+    <p style="letter-spacing:0;">
+        Two hearts, countless memories, endless possibilities. ❤️
+    </p>
 </div>
 """, unsafe_allow_html=True)
