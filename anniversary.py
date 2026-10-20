@@ -154,9 +154,9 @@ st.markdown("""
     Main chahta hoon ke har aane wale saal mein hum saath
     hansein, ek doosre ko samjhein aur har mushkil mein
     ek doosre ka haath thaamein.<br><br>
-    <b>Happy 4th Nikah Anniversary, meri jaan.</b><br>
+    <b>Happy 4th Anniversary, meri jaan.</b><br>
     Meri dua hai ke hamara rishta hamesha mohabbat,
-    izzat, rehmat aur barkat se bhara rahe. Ameen. ❤️
+    izzat se bhara rahe. Ameen. ❤️
     </div>
     <br>
     <div class="script" style="text-align:right;">Forever yours 💖</div>
